@@ -1,4 +1,6 @@
 AsyncRails::Application.routes.draw do
+  root :to => 'async#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
