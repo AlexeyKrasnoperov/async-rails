@@ -18,6 +18,9 @@ end
 
 gem 'jquery-rails'
 
+gem 'eventmachine', '~> 1.0.0.beta.4'
+gem 'rainbows'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
