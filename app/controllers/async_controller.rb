@@ -1,12 +1,4 @@
-class AsyncController < ActionController::Metal
-  include AbstractController::Layouts
-  include ActionController::Rendering
-  include ActionController::RequestForgeryProtection
-
-  protect_from_forgery
-
-  append_view_path "#{Rails.root}/app/views"
-
+class AsyncController < ActionController::Base
   def index
     http = EM::HttpRequest.new('http://slowapi.com/delay/1').get
     http.callback do
@@ -14,7 +6,7 @@ class AsyncController < ActionController::Metal
       request.env['async.callback'].call [
         200,
         { 'Content-Type' => 'text/html' },
-        render('async/index', :layout => 'application')
+        render('index', :layout => 'application')
       ]
     end
 
